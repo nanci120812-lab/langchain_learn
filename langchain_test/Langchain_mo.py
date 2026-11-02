@@ -39,7 +39,7 @@ LLM_02 = init_chat_model(
     model_provider="openai",
     base_url=os.getenv("GJ_URL"),
     api_key=os.getenv("GJ_API"),
-)#
+)
 LLM_03 = init_chat_model(
     model="Qwen/Qwen3.8-27B",
     model_provider="openai",
@@ -49,6 +49,3 @@ LLM_03 = init_chat_model(
 for name, lmm in [("模型01", LLM_01), ("模型02", LLM_02), ("模型03", LLM_03)]:
     response = lmm.invoke("简述一下自己的优点")
     print(f"{name}:{response.content}")
-
-
-# 1111111111111111
