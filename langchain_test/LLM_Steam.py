@@ -10,12 +10,14 @@ llm = ChatOpenAI(
 )
 
 # def streaming_exampl():
-print("AI...回答")
-full_msg = None # 存大模型给我们返回的消息
-for i in llm.stream("请写一首不屈于命运的诗,50字"):
-    full_msg =i if full_msg is None else full_msg + i
-    print(i.content,end="",flush=True)
-    time.sleep(1)
-print("-----------------------------")
-print(f"\n\n完整消息\n{full_msg.content}")
+# print("AI...回答")
+# full_msg = None # 存大模型给我们返回的消息
+# for i in llm.stream("请写一首不屈于命运的诗,50字"):
+#     full_msg =i if full_msg is None else full_msg + i
+#     print(i.content,end="",flush=True)
+#     time.sleep(1)
+# print("-----------------------------")
+# print(f"\n\n完整消息\n{full_msg.content}")
+
+
 
