@@ -21,31 +21,44 @@
 # print(LLM_GJ.invoke("生成一段自我介绍"))
 
 # 第三种 init
+# from langchain.chat_models import init_chat_model
+# import dotenv
+#
+#
+# dotenv.load_dotenv()
+# import os
+#
+# LLM_01 = init_chat_model(
+#     model="deepseek-ai/DeepSeek-V4-Flash",
+#     model_provider="openai",
+#     base_url=os.getenv("GJ_URL"),
+#     api_key=os.getenv("GJ_API"),
+# )
+# LLM_02 = init_chat_model(
+#     model="deepseek-ai/DeepSeek-V4.1-Flash",
+#     model_provider="openai",
+#     base_url=os.getenv("GJ_URL"),
+#     api_key=os.getenv("GJ_API"),
+# )
+# LLM_03 = init_chat_model(
+#     model="Qwen/Qwen3.8-27B",
+#     model_provider="openai",
+#     base_url=os.getenv("GJ_URL"),
+#     api_key=os.getenv("GJ_API"),
+# )
+# for name, lmm in [("模型01", LLM_01), ("模型02", LLM_02), ("模型03", LLM_03)]:
+#     response = lmm.invoke("简述一下自己的优点")
+#     print(f"{name}:{response.content}")
+
 from langchain.chat_models import init_chat_model
 import dotenv
-
-
 dotenv.load_dotenv()
 import os
-
-LLM_01 = init_chat_model(
-    model="deepseek-ai/DeepSeek-V4-Flash",
-    model_provider="openai",
-    base_url=os.getenv("GJ_URL"),
-    api_key=os.getenv("GJ_API"),
+llm_1 = init_chat_model(
+    model = "deepseek-ai/DeepSeek-V4-Flash",
+    base_url = os.getenv("GJ_URL"),
+    api_key = os.getenv("GJ_API"),
+    model_provider = "openai"
 )
-LLM_02 = init_chat_model(
-    model="deepseek-ai/DeepSeek-V4.1-Flash",
-    model_provider="openai",
-    base_url=os.getenv("GJ_URL"),
-    api_key=os.getenv("GJ_API"),
-)
-LLM_03 = init_chat_model(
-    model="Qwen/Qwen3.8-27B",
-    model_provider="openai",
-    base_url=os.getenv("GJ_URL"),
-    api_key=os.getenv("GJ_API"),
-)
-for name, lmm in [("模型01", LLM_01), ("模型02", LLM_02), ("模型03", LLM_03)]:
-    response = lmm.invoke("简述一下自己的优点")
-    print(f"{name}:{response.content}")
+response = llm_1.invoke("你的形象二次元化是鲸鱼娘吗")
+print(f"模型1：{response.content}")
