@@ -18,3 +18,4 @@ message = HumanMessage(content=[
 
 response =llm.invoke([message])
 print(response.content)
+print("你号")
